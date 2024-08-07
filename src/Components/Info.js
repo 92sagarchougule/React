@@ -11,16 +11,16 @@ var Info = ()=>{
         ()=>{
             getData();
             
-    })
+    },[]);
 
-    // const[dog, setDog] = useState({message:'', status:''});
+    const[dog, setDog] = useState({message:'', status:''});
 
     async function getData(){
 
         const req = await fetch("https://dog.ceo/api/breeds/image/random");
         const data = await req.json();
         console.log(data);
-        // setDog(data)
+        setDog(data)
         
 
     }
@@ -36,7 +36,7 @@ var Info = ()=>{
         <h1 id='code'>{msg}</h1>
         <button id='btn' style={{color:'green', width:'100px', border:'5px'}} onClick = {()=>{setMSG('data inserted to database'); setBtn('submited')}}> {btn}</button>
         <div>
-            {/* <img src={dog.message}></img> */}
+            <img src={dog.message}></img>
         </div>
         </>
     )
